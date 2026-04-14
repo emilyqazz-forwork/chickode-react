@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CHICKODE - 문제 풀이</title>
+    <link rel="stylesheet" href="quiz-style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="terminal-wrapper">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="title">CHICKODE - 터미널</span>
+            </div>
+            <div class="terminal-body">
+                <p class="quiz-title">> 문제: 'Hello Chickode'를 출력하는 코드를 작성하세요.</p>
+                <textarea class="code-editor" placeholder="// 여기에 코드를 입력하세요..."></textarea>
+                <button class="submit-btn">제출하기</button>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="score-display">점수: 0</div>
+            
+            <div class="hint-buttons">
+                <button id="hintBtn1" class="hint-btn active" onclick="showHint(1)">힌트 1</button>
+                <button id="hintBtn2" class="hint-btn disabled" onclick="showHint(2)">힌트 2</button>
+                <button id="hintBtn3" class="hint-btn disabled" onclick="showHint(3)">힌트 3</button>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-btn next-btn disabled">다음 문제</button>
+                <button class="action-btn quit-btn" onclick="location.href='index.html'">그만두기</button>
+            </div>
+        </div>
+
+        <div class="character-wrapper">
+            <div id="bubble" class="speech-bubble">
+                <p id="bubbleText">문제를 풀어봐!</p>
+            </div>
+            <img src="images/귀여운_병아리와_노트북-removebg-preview.png" alt="병아리 캐릭터" class="character-img">
+        </div>
+    </div>
+
+    <script>
+        const hints = {
+            1: "출력을 하려면 'console.log()' 함수가 필요해!",
+            2: "괄호 안에 출력하고 싶은 글자를 따옴표로 감싸서 넣어줘.",
+            3: "예) console.log('Hello Chickode');"
+        };
+
+        let currentHintStep = 1;
+
+        function showHint(step) {
+            const bubbleText = document.getElementById('bubbleText');
+            
+            if (hints[step]) {
+                bubbleText.innerText = hints[step];
+            }
+
+            if (step === currentHintStep) {
+                if (currentHintStep < 3) {
+                    currentHintStep++;
+                    const nextBtn = document.getElementById(`hintBtn${currentHintStep}`);
+                    nextBtn.classList.remove('disabled');
+                    nextBtn.classList.add('active');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
