@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { GlobalNav } from './components/GlobalNav';
-import { GlobalSettingsModal } from './components/GlobalSettingsModal';
+import { Nav } from './components/Nav';
+import { SettingModal } from './components/SettingModal';
 import { AuthModal } from './components/AuthModal';
 import { Home } from './pages/Home';
 import { Play } from './pages/Play';
@@ -18,15 +18,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GlobalNav 
-        onOpenSettings={() => setShowSettings(true)} 
-        onOpenAuth={() => setShowAuth(true)} 
+      <Nav
+        onOpenSettings={() => setShowSettings(true)}
+        onOpenAuth={() => setShowAuth(true)}
         t={t}
       />
-      
       {showAuth && <AuthModal onClose={() => setShowAuth(false)} t={t} />}
-      {showSettings && <GlobalSettingsModal onClose={() => setShowSettings(false)} t={t} params={params} setParams={setParams} />}
-
+      {showSettings && <SettingModal onClose={() => setShowSettings(false)} t={t} params={params} setParams={setParams} />}
       <Routes>
         <Route path="/" element={<Home t={t} />} />
         <Route path="/play" element={<Play t={t} />} />
