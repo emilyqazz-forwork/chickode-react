@@ -30,7 +30,7 @@ export function Pattern({ t }) {
         <div style={{ width: '100%', maxWidth: '700px', display: 'flex', flexDirection: 'column', gap: '30px' }}>
 
           {/* 전체 요약 */}
-          <div style={{ background: 'rgba(0,0,0,0.6)', borderRadius: '16px', padding: '24px', color: 'white' }}>
+          <div style={{ background: 'rgba(255,255,255,0.1)', borderRadius: '16px', padding: '24px', color: 'white' }}>
             <h2 style={{ marginBottom: '16px', fontSize: '1.2rem' }}>📊 전체 요약</h2>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'space-around', textAlign: 'center' }}>
               <div>
@@ -55,7 +55,7 @@ export function Pattern({ t }) {
           </div>
 
           {/* 챕터별 분석 */}
-          <div style={{ background: 'rgba(0,0,0,0.6)', borderRadius: '16px', padding: '24px', color: 'white' }}>
+          <div style={{ background: 'rgba(255,255,255,0.1)', borderRadius: '16px', padding: '24px', color: 'white' }}>
             <h2 style={{ marginBottom: '16px', fontSize: '1.2rem' }}>📚 챕터별 분석</h2>
             {Object.entries(summary.byChapter).sort(([a], [b]) => parseInt(a) - parseInt(b)).map(([ch, data]) => {
               const accuracy = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
@@ -76,7 +76,7 @@ export function Pattern({ t }) {
           </div>
 
           {/* 유형별 분석 */}
-          <div style={{ background: 'rgba(0,0,0,0.6)', borderRadius: '16px', padding: '24px', color: 'white' }}>
+          <div style={{ background: 'rgba(255,255,255,0.1)', borderRadius: '16px', padding: '24px', color: 'white' }}>
             <h2 style={{ marginBottom: '16px', fontSize: '1.2rem' }}>🎯 유형별 분석</h2>
             {Object.entries(summary.byType).map(([type, data]) => {
               const accuracy = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;

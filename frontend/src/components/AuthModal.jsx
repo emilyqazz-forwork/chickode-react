@@ -10,7 +10,7 @@ export function AuthModal({ onClose, t }) {
     const msgLabel = document.getElementById('loginMsg');
     
     try {
-      const res = await fetch('http://localhost:8000/login', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: id, password: pw })
@@ -41,7 +41,7 @@ export function AuthModal({ onClose, t }) {
     const msgLabel = document.getElementById('registerMsg');
 
     try {
-      const res = await fetch('http://localhost:8000/register', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: id, password: pw, nickname: nick })
